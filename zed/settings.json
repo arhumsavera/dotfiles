@@ -18,7 +18,7 @@
     "indent_size": 24,
   },
   "ui_font_family": "MesloLGM Nerd Font",
-  "ui_font_size": 18,
+  "ui_font_size": 26,
   "buffer_font_family": "MesloLGM Nerd Font",
   "buffer_font_size": 14,
   "buffer_line_height": { "custom": 1.6 },
@@ -49,6 +49,9 @@
     "quick_actions": false,
   },
   "cursor_blink": false,
+  "status_bar": {
+    "experimental.show": false
+  },
   "terminal": {
     "dock": "bottom",
     "default_height": 1200,

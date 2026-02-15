@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Toggle Status Bar",
+    "command": "bash",
+    "args": ["~/scripts/toggle-zed-statusbar.sh"],
+    "reveal": "never",
+    "hide": "always"
+  }
+]

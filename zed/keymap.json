@@ -2,21 +2,24 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-d": "pane::SplitRight",
-      "cmd-shift-d": "pane::SplitDown",
       "cmd-]": "workspace::ActivatePaneRight",
       "cmd-[": "workspace::ActivatePaneLeft",
-      "cmd-\\": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
       "cmd-w": "pane::CloseActiveItem",
       "cmd-b": "workspace::ToggleRightDock",
-    }
+      "cmd-shift-b": ["task::Spawn", { "task_name": "Toggle Status Bar" }],
+    },
   },
   {
     "context": "Editor",
     "bindings": {
       "cmd-.": "editor::GoToDefinition",
       "cmd-shift-o": "outline::Toggle",
-      "alt-r": "editor::FindAllReferences"
+      "alt-r": "editor::FindAllReferences",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-\\": "pane::SplitAndMoveRight"
     }
   }
 ]
