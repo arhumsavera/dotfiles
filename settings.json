@@ -1,0 +1,115 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen3:30b",
+    },
+  },
+  "project_panel": {
+    "dock": "right",
+    "indent_size": 24,
+  },
+  "ui_font_family": "MesloLGM Nerd Font",
+  "ui_font_size": 18,
+  "buffer_font_family": "MesloLGM Nerd Font",
+  "buffer_font_size": 14,
+  "buffer_line_height": { "custom": 1.6 },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Espresso (Blur) [Heavy]",
+  },
+  "gutter": {
+    "line_numbers": false,
+    "folds": false,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "scrollbar": {
+    "show": "never",
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false,
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.venv",
+    "**/venv",
+    "**/.mypy_cache",
+    "**/.ruff_cache",
+    "**/.pytest_cache",
+    "**/dist",
+    "**/.nuxt",
+    "**/.output",
+    "**/*.csv",
+    "**/*.sql"
+  ],
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "ruff", "!basedpyright"]
+    }
+  },
+  "cursor_blink": false,
+  "cursor_shape": "block",
+  "scroll_beyond_last_line": "one_page",
+  "sticky_scroll": {
+    "enabled": false
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": false,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 500
+    }
+  },
+  "terminal": {
+    "dock": "bottom",
+    "default_height": 1600,
+    "font_size": 13,
+    "shell_integration": true
+  },
+  "soft_wrap": "editor_width",
+  "show_wrap_guides": false,
+  "status_bar": {
+    "experimental.show": false,
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "qwen3:30b",
+          "display_name": "qwen3:30b",
+          "max_tokens": 32768,
+          "supports_tools": true,
+          "supports_thinking": true,
+          "supports_images": true,
+        },
+      ],
+    },
+  },
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-d": "pane::SplitRight",
+      "cmd-shift-d": "pane::SplitDown",
+      "cmd-]": "workspace::ActivatePaneRight",
+      "cmd-[": "workspace::ActivatePaneLeft",
+      "cmd-\\": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
+      "cmd-w": "pane::CloseActiveItem",
+      "cmd-b": "workspace::ToggleRightDock",
+      "cmd-shift-b": ["task::Spawn", { "task_name": "toggle status bar" }],
+      "alt-f": ["task::Spawn", { "task_name": "fzf search" }],
+      "cmd-escape": "projects::OpenRecent",
+      "cmd-h": "zed::ToggleFullScreen",
+      "cmd-0": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-.": "editor::GoToDefinition",
+      "cmd-,": "pane::GoBack",
+      "cmd-shift-.": "pane::GoForward",
+      "cmd-shift-o": "outline::Toggle",
+      "cmd-t": "project_symbols::Toggle",
+      "alt-r": "editor::FindAllReferences",
+      "alt-down": "editor::GoToHunk",
+      "alt-up": "editor::GoToPreviousHunk",
+      "alt-l": "editor::ToggleLineNumbers",
+      "f2": "editor::Rename"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-]": "workspace::ActivatePaneRight",
+      "cmd-[": "workspace::ActivatePaneLeft"
+    }
+  },
+  {
+    "context": "BufferSearchBar",
+    "bindings": {
+      "cmd-shift-b": "buffer_search::Dismiss"
+    }
+  }
+]

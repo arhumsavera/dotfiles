@@ -1,0 +1,15 @@
+[
+  {
+    "label": "toggle status bar",
+    "command": "f=~/consumeraffairs/scripts/dotfiles/zed/settings.json; if grep -q '\"experimental.show\": false' \"$f\"; then sed -i '' 's/\"experimental.show\": false/\"experimental.show\": true/' \"$f\"; else sed -i '' 's/\"experimental.show\": true/\"experimental.show\": false/' \"$f\"; fi",
+    "hide": "always",
+    "reveal": "never"
+  },
+  {
+    "label": "fzf search",
+    "command": "/Users/arhumsavera/.config/zed/scripts/fzf-search.sh",
+    "reveal": "always",
+    "focus": true,
+    "hide": "on_success"
+  }
+]
