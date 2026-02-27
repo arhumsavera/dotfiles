@@ -1,28 +1,54 @@
 #!/bin/bash
-# Dotfiles setup — symlinks configs to their expected locations
-# Run: bash ~/scripts/dotfiles/setup.sh
+# Dotfiles setup — installs deps and symlinks configs
 
-DOTFILES="$HOME/scripts/dotfiles"
+set -e
 
-echo "Setting up dotfiles..."
+DOTFILES_DIR="${HOME}/scripts/dotfiles"
+
+if [ ! -d "$DOTFILES_DIR" ]; then
+    echo "Error: Dotfiles not found at $DOTFILES_DIR"
+    echo "Clone first: git clone https://github.com/arhumsavera/dotfiles ~/scripts/dotfiles"
+    exit 1
+fi
+
+echo "Installing dependencies..."
+brew install tmux fzf ripgrep gh zoxide
+brew install zsh zsh-syntax-highlighting zsh-autosuggestions
+brew install oh-my-posh
+
+echo "Creating symlinks..."
+
+# Helper to create symlink (removes existing)
+link() {
+    local src="$1" dest="$2"
+    mkdir -p "$(dirname "$dest")"
+    rm -f "$dest"
+    ln -sf "$src" "$dest"
+}
 
 # Ghostty
-mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
-ln -sf "$DOTFILES/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+link "$DOTFILES_DIR/ghostty/config" "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
 
 # tmux
-ln -sf "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+link "$DOTFILES_DIR/tmux/.tmux.conf" "${HOME}/.tmux.conf"
 
 # Zed
-mkdir -p "$HOME/.config/zed"
-ln -sf "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
-ln -sf "$DOTFILES/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+mkdir -p "${HOME}/.config/zed/scripts"
+link "$DOTFILES_DIR/zed/settings.json" "${HOME}/.config/zed/settings.json"
+link "$DOTFILES_DIR/zed/keymap.json" "${HOME}/.config/zed/keymap.json"
+link "$DOTFILES_DIR/zed/tasks.json" "${HOME}/.config/zed/tasks.json"
+link "$DOTFILES_DIR/zed/scripts/fzf-search.sh" "${HOME}/.config/zed/scripts/fzf-search.sh"
+chmod +x "$DOTFILES_DIR/zed/scripts/fzf-search.sh"
 
-# oh-my-posh
-mkdir -p "$HOME/scripts/themes"
-ln -sf "$DOTFILES/omp/emodipt-extend.omp.json" "$HOME/scripts/themes/emodipt-extend.omp.json"
+# oh-my-posh themes
+mkdir -p "${HOME}/scripts/themes"
+link "$DOTFILES_DIR/omp/emodipt-extend.omp.json" "${HOME}/scripts/themes/emodipt-extend.omp.json"
 
 # zsh
-ln -sf "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+link "$DOTFILES_DIR/zsh/.zshrc" "${HOME}/.zshrc"
 
-echo "Done! All configs symlinked."
+# opencode
+mkdir -p "${HOME}/.config/opencode/themes"
+link "$DOTFILES_DIR/opencode/themes/system-transparent-fix.json" "${HOME}/.config/opencode/themes/system-transparent-fix.json"
+
+echo "Done!"

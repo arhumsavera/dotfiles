@@ -25,17 +25,20 @@ MacBook Pro dev environment configs. Optimized for remote SSH from iPad via Tail
 - Cmd+Shift+. is hardcoded to Zed AI assistant, can't override
 - Zed has no maximize terminal panel or custom window title support
 - macOS native fullscreen breaks Ghostty transparency
+- opencode `system` theme transparency breaks text contrast on selected items; use `system-transparent-fix` theme instead
 
 ## File Map
 ```
-ghostty/config     → ~/Library/Application Support/com.mitchellh.ghostty/config
-tmux/.tmux.conf    → ~/.tmux.conf
-zed/settings.json  → ~/.config/zed/settings.json
-zed/keymap.json    → ~/.config/zed/keymap.json
-zed/tasks.json     → ~/.config/zed/tasks.json
-omp/               → ~/scripts/themes/
-zsh/.zshrc         → ~/.zshrc
-scripts/           → ~/scripts/
+ghostty/config                              → ~/Library/Application Support/com.mitchellh.ghostty/config
+tmux/.tmux.conf                             → ~/.tmux.conf
+zed/settings.json                           → ~/.config/zed/settings.json
+zed/keymap.json                             → ~/.config/zed/keymap.json
+zed/tasks.json                              → ~/.config/zed/tasks.json
+zed/scripts/fzf-search.sh                  → ~/.config/zed/scripts/fzf-search.sh
+omp/                                        → ~/scripts/themes/
+zsh/.zshrc                                  → ~/.zshrc
+scripts/                                    → ~/scripts/
+opencode/themes/system-transparent-fix.json → ~/.config/opencode/themes/system-transparent-fix.json
 ```
 
 ## Setup
@@ -43,4 +46,4 @@ scripts/           → ~/scripts/
 git clone https://github.com/arhumsavera/dotfiles ~/scripts/dotfiles
 bash ~/scripts/dotfiles/setup.sh
 ```
-Also install: Ghostty, Tailscale, tmux (`brew install tmux`), oh-my-posh, oh-my-zsh
+Also install: Ghostty, Tailscale (or run setup.sh which installs the rest)
